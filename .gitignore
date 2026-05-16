@@ -1,6 +1,5 @@
-# Claude Code & Specify
+# Claude Code
 .claude/
-.specify/
 
 # Dependencies
 node_modules/

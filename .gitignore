@@ -11,6 +11,15 @@ dist/
 build/
 out/
 
+# .NET / C#
+bin/
+obj/
+*.user
+*.suo
+packages/
+publish/
+*.pdb
+
 # Environment
 .env
 .env.local

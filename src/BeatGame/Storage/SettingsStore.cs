@@ -8,12 +8,6 @@ public static class SettingsStore
     private const string FolderName = "BeatGame";
     private const string FileName = "settings.json";
 
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        WriteIndented = true,
-    };
-
     public static string GetSettingsPath()
     {
         string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -29,7 +23,7 @@ public static class SettingsStore
         try
         {
             string json = File.ReadAllText(path);
-            SettingsDto? dto = JsonSerializer.Deserialize<SettingsDto>(json, JsonOptions);
+            SettingsDto? dto = JsonSerializer.Deserialize<SettingsDto>(json, JsonHelper.WriteOptions);
             if (dto?.KeyBindings is null || dto.KeyBindings.Length != KeyBindings.LaneCount)
             {
                 return new KeyBindings();
@@ -47,8 +41,9 @@ public static class SettingsStore
             }
             return new KeyBindings(chars);
         }
-        catch
+        catch (Exception ex)
         {
+            Console.Error.WriteLine($"[SettingsStore] Failed to load settings from '{path}': {ex.Message}");
             return new KeyBindings();
         }
     }
@@ -69,7 +64,7 @@ public static class SettingsStore
         for (int i = 0; i < chars.Length; i++) strings[i] = chars[i].ToString();
 
         SettingsDto dto = new() { KeyBindings = strings };
-        string json = JsonSerializer.Serialize(dto, JsonOptions);
+        string json = JsonSerializer.Serialize(dto, JsonHelper.WriteOptions);
         File.WriteAllText(path, json);
     }
 

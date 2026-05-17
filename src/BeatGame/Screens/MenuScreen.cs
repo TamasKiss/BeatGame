@@ -56,9 +56,10 @@ public sealed class MenuScreen : Screen
         Rectangle settingsRect = new(buttonX, firstButtonY + ButtonHeight + ButtonSpacing, ButtonWidth, ButtonHeight);
         Rectangle quitRect     = new(buttonX, firstButtonY + 2 * (ButtonHeight + ButtonSpacing), ButtonWidth, ButtonHeight);
 
-        float playFlash     = AnimationHelper.GetFlashAlpha(_buttonPressTimes[0], ButtonFlashDuration);
-        float settingsFlash = AnimationHelper.GetFlashAlpha(_buttonPressTimes[1], ButtonFlashDuration);
-        float quitFlash     = AnimationHelper.GetFlashAlpha(_buttonPressTimes[2], ButtonFlashDuration);
+        double nowSec = Raylib.GetTime();
+        float playFlash     = AnimationHelper.GetFlashAlpha(_buttonPressTimes[0], nowSec, ButtonFlashDuration);
+        float settingsFlash = AnimationHelper.GetFlashAlpha(_buttonPressTimes[1], nowSec, ButtonFlashDuration);
+        float quitFlash     = AnimationHelper.GetFlashAlpha(_buttonPressTimes[2], nowSec, ButtonFlashDuration);
 
         if (UIRenderer.DrawButton(playRect, "Play", flashAlpha: playFlash) && _pendingState is null)
         {

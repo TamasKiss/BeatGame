@@ -16,9 +16,9 @@ public sealed class BeatMap
         for (int i = 0; i < beats.Length; i++)
         {
             Beat beat = beats[i];
-            if (beat.Lane < 0 || beat.Lane > 4)
+            if (beat.Lane < GameConstants.MinLane || beat.Lane > GameConstants.MaxLane)
             {
-                throw new ArgumentException($"Beat {i} has invalid lane {beat.Lane}; must be 0-4.", nameof(beats));
+                throw new ArgumentException($"Beat {i} has invalid lane {beat.Lane}; must be {GameConstants.MinLane}-{GameConstants.MaxLane}.", nameof(beats));
             }
             if (beat.TimestampMs <= previousTimestamp)
             {

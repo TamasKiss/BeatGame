@@ -7,12 +7,6 @@ public static class ScoreStore
     private const string FolderName = "BeatGame";
     private const string FileName   = "scores.json";
 
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        WriteIndented = true,
-    };
-
     public static string GetScoresPath()
     {
         string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -27,10 +21,14 @@ public static class ScoreStore
         try
         {
             string json = File.ReadAllText(path);
-            ScoreDto? dto = JsonSerializer.Deserialize<ScoreDto>(json, JsonOptions);
+            ScoreDto? dto = JsonSerializer.Deserialize<ScoreDto>(json, JsonHelper.WriteOptions);
             return Math.Max(0, dto?.HighScore ?? 0);
         }
-        catch { return 0; }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine($"[ScoreStore] Failed to load high score from '{path}': {ex.Message}");
+            return 0;
+        }
     }
 
     /// <summary>
@@ -46,7 +44,7 @@ public static class ScoreStore
         if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
             Directory.CreateDirectory(dir);
 
-        File.WriteAllText(path, JsonSerializer.Serialize(new ScoreDto { HighScore = score }, JsonOptions));
+        File.WriteAllText(path, JsonSerializer.Serialize(new ScoreDto { HighScore = score }, JsonHelper.WriteOptions));
     }
 
     private sealed class ScoreDto

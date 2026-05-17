@@ -10,10 +10,9 @@ namespace BeatGame.Screens;
 
 public sealed class PlayScreen : Screen
 {
-    private const double CountdownSeconds  = 3.0;
-    private const double EndScoreSeconds   = 3.0;
-    private const double LaneFadeSeconds   = 0.5;
-    private const int    GameOverMissLimit = 15;
+    private const double CountdownSeconds = 3.0;
+    private const double EndScoreSeconds  = 3.0;
+    private const double LaneFadeSeconds  = 0.5;
 
     private readonly KeyBindings   _bindings;
     private readonly AudioManager  _audio;
@@ -97,7 +96,7 @@ public sealed class PlayScreen : Screen
                     && _detector?.AllBeatsProcessed == true
                     && (!_audio.DeviceAvailable || !_audio.IsPlaying))
                 {
-                    ScoreStore.SaveIfHighScore((int)_session.Score);
+                    ScoreStore.SaveIfHighScore((int)Math.Round(_session.Score));
                     _phase           = Phase.EndScore;
                     _phaseElapsedSec = 0;
                 }
@@ -142,10 +141,10 @@ public sealed class PlayScreen : Screen
             int? lane = _bindings.FindLaneByKey(letter);
             if (lane is null) continue;
 
-            double now = Raylib.GetTime();
+            double now = (_timer?.CurrentTimeMs ?? 0) / 1000.0;
             _laneAnyPressTimes[lane.Value] = now;
 
-            HitResult result = _detector.EvaluatePress(_timer.CurrentTimeMs, lane.Value);
+            HitResult result = _detector.EvaluatePress(_timer!.CurrentTimeMs, lane.Value);
             switch (result)
             {
                 case HitResult.Hit:
@@ -166,7 +165,7 @@ public sealed class PlayScreen : Screen
     /// <summary>Returns true and switches to GameOver phase if the miss limit is reached.</summary>
     private bool TriggerGameOverIfNeeded()
     {
-        if (_session.ConsecutiveMisses < GameOverMissLimit) return false;
+        if (_session.ConsecutiveMisses < GameConstants.GameOverMissLimit) return false;
 
         _timeAtGameOverMs = _timer?.CurrentTimeMs ?? 0;
         if (_audio.DeviceAvailable) _audio.StopMusic();
@@ -193,7 +192,8 @@ public sealed class PlayScreen : Screen
             bool isActive = _phase == Phase.Active;
             BeatRenderer.DrawLanes(screenWidth, screenHeight, _bindings, laneAlpha,
                 laneAnyPressTimes: isActive ? _laneAnyPressTimes : null,
-                laneHitTimes:      isActive ? _laneHitTimes      : null);
+                laneHitTimes:      isActive ? _laneHitTimes      : null,
+                currentTimeSec:    (_timer?.CurrentTimeMs ?? 0) / 1000.0);
         }
 
         if (_phase == Phase.Active && _detector is not null && _timer is not null && _song is not null)
@@ -215,7 +215,7 @@ public sealed class PlayScreen : Screen
 
             case Phase.EndScore:
                 UIRenderer.DrawCenteredText("Song complete!", screenWidth / 2, screenHeight / 2 - 80, 56, UIRenderer.TextLight);
-                UIRenderer.DrawCenteredText($"Final Score: {(int)_session.Score}", screenWidth / 2, screenHeight / 2, 48, UIRenderer.Primary);
+                UIRenderer.DrawCenteredText($"Final Score: {(int)Math.Round(_session.Score)}", screenWidth / 2, screenHeight / 2, 48, UIRenderer.Primary);
                 UIRenderer.DrawCenteredText("Returning to song selection...", screenWidth / 2, screenHeight / 2 + 80, 20, UIRenderer.TextDim);
                 break;
         }
@@ -223,7 +223,7 @@ public sealed class PlayScreen : Screen
 
     private void DrawHud()
     {
-        Raylib.DrawText($"Score: {(int)_session.Score}", 30, 20, 28, UIRenderer.TextLight);
+        Raylib.DrawText($"Score: {(int)Math.Round(_session.Score)}", 30, 20, 28, UIRenderer.TextLight);
         Raylib.DrawText($"x{_session.Multiplier:F2}", 30, 56, 22, UIRenderer.Primary);
         Raylib.DrawText($"Streak: {_session.ConsecutiveHits}", 30, 84, 18, UIRenderer.TextDim);
 
@@ -237,7 +237,7 @@ public sealed class PlayScreen : Screen
         const int BarWidth  = 180;
         const int BarHeight = 7;
 
-        float fill = Math.Clamp(_session.ConsecutiveMisses / (float)GameOverMissLimit, 0f, 1f);
+        float fill = Math.Clamp(_session.ConsecutiveMisses / (float)GameConstants.GameOverMissLimit, 0f, 1f);
 
         Raylib.DrawRectangle(BarX, BarY, BarWidth, BarHeight, UIRenderer.PanelBg);
 
@@ -259,7 +259,7 @@ public sealed class PlayScreen : Screen
         int midY = screenHeight / 2;
 
         UIRenderer.DrawCenteredText("GAME OVER", screenWidth / 2, midY - 120, 72, UIRenderer.Accent);
-        UIRenderer.DrawCenteredText($"Score: {(int)_session.Score}", screenWidth / 2, midY - 20, 48, UIRenderer.Primary);
+        UIRenderer.DrawCenteredText($"Score: {(int)Math.Round(_session.Score)}", screenWidth / 2, midY - 20, 48, UIRenderer.Primary);
         UIRenderer.DrawCenteredText($"Made it to {FormatSongTime(_timeAtGameOverMs)}", screenWidth / 2, midY + 50, 28, UIRenderer.TextDim);
         UIRenderer.DrawCenteredText("Press ESC to return to the main menu", screenWidth / 2, midY + 120, 20, UIRenderer.TextDim);
     }

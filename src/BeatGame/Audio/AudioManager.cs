@@ -39,8 +39,9 @@ public sealed class AudioManager : IDisposable
             Raylib.InitAudioDevice();
             _deviceInitialized = Raylib.IsAudioDeviceReady();
         }
-        catch
+        catch (Exception ex)
         {
+            Console.Error.WriteLine($"[AudioManager] Failed to initialize audio device: {ex.Message}");
             _deviceInitialized = false;
         }
     }
@@ -58,8 +59,9 @@ public sealed class AudioManager : IDisposable
             Raylib.SetMusicVolume(_music, _volume);
             return true;
         }
-        catch
+        catch (Exception ex)
         {
+            Console.Error.WriteLine($"[AudioManager] Failed to load music from '{path}': {ex.Message}");
             _musicLoaded = false;
             return false;
         }

@@ -42,10 +42,10 @@ public static class AnimationHelper
     /// Returns a 1→0 fade value based on time elapsed since a press was recorded.
     /// Returns 0 if never pressed (pressedAtSec &lt; 0) or duration has fully elapsed.
     /// </summary>
-    public static float GetFlashAlpha(double pressedAtSec, double durationSec)
+    public static float GetFlashAlpha(double pressedAtSec, double currentSec, double durationSec)
     {
         if (pressedAtSec < 0) return 0f;
-        double elapsed = Raylib.GetTime() - pressedAtSec;
+        double elapsed = currentSec - pressedAtSec;
         if (elapsed >= durationSec) return 0f;
         return (float)(1.0 - elapsed / durationSec);
     }

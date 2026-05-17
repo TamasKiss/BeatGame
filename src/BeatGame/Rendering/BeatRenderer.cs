@@ -22,7 +22,7 @@ public static class BeatRenderer
     private const double LaneHitFlashDuration   = 0.35;
 
     public static void DrawLanes(int screenWidth, int screenHeight, KeyBindings bindings, float laneFadeAlpha = 1.0f,
-        double[]? laneAnyPressTimes = null, double[]? laneHitTimes = null)
+        double[]? laneAnyPressTimes = null, double[]? laneHitTimes = null, double currentTimeSec = 0.0)
     {
         (int laneX, int laneWidth, int hitZoneY) = ComputeLaneGeometry(screenWidth, screenHeight);
         int laneTop    = 80;
@@ -41,7 +41,7 @@ public static class BeatRenderer
             // Any-press: brief white wash on the lane column
             if (laneAnyPressTimes != null)
             {
-                float anyFlash = AnimationHelper.GetFlashAlpha(laneAnyPressTimes[i], LanePressFlashDuration);
+                float anyFlash = AnimationHelper.GetFlashAlpha(laneAnyPressTimes[i], currentTimeSec, LanePressFlashDuration);
                 if (anyFlash > 0f)
                 {
                     Color pressOverlay = new((byte)255, (byte)255, (byte)255, (byte)(anyFlash * 70 * laneFadeAlpha));
@@ -68,7 +68,7 @@ public static class BeatRenderer
             // Hit burst: bright yellow-white overlay + expanding ring
             if (laneHitTimes != null)
             {
-                float hitFlash = AnimationHelper.GetFlashAlpha(laneHitTimes[i], LaneHitFlashDuration);
+                float hitFlash = AnimationHelper.GetFlashAlpha(laneHitTimes[i], currentTimeSec, LaneHitFlashDuration);
                 if (hitFlash > 0f)
                 {
                     // Bright overlay on the indicator box

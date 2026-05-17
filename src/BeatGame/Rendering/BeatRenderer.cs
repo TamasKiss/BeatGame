@@ -18,19 +18,36 @@ public static class BeatRenderer
         new(200, 120, 255, 255),
     };
 
-    public static void DrawLanes(int screenWidth, int screenHeight, KeyBindings bindings, float laneFadeAlpha = 1.0f)
+    private const double LanePressFlashDuration = 0.12;
+    private const double LaneHitFlashDuration   = 0.35;
+
+    public static void DrawLanes(int screenWidth, int screenHeight, KeyBindings bindings, float laneFadeAlpha = 1.0f,
+        double[]? laneAnyPressTimes = null, double[]? laneHitTimes = null)
     {
         (int laneX, int laneWidth, int hitZoneY) = ComputeLaneGeometry(screenWidth, screenHeight);
-        int laneTop = 80;
+        int laneTop    = 80;
         int laneBottom = hitZoneY + 60;
 
+        // Lane column backgrounds + any-press flash
         for (int i = 0; i < KeyBindings.LaneCount; i++)
         {
             int x = laneX + i * laneWidth;
             Rectangle laneRect = new(x + 4, laneTop, laneWidth - 8, laneBottom - laneTop);
+
             Color laneBg = LaneColors[i];
             laneBg.A = (byte)(40 * laneFadeAlpha);
             Raylib.DrawRectangleRec(laneRect, laneBg);
+
+            // Any-press: brief white wash on the lane column
+            if (laneAnyPressTimes != null)
+            {
+                float anyFlash = AnimationHelper.GetFlashAlpha(laneAnyPressTimes[i], LanePressFlashDuration);
+                if (anyFlash > 0f)
+                {
+                    Color pressOverlay = new((byte)255, (byte)255, (byte)255, (byte)(anyFlash * 70 * laneFadeAlpha));
+                    Raylib.DrawRectangleRec(laneRect, pressOverlay);
+                }
+            }
         }
 
         // Hit zone bar
@@ -38,19 +55,47 @@ public static class BeatRenderer
         hitZoneColor.A = (byte)(180 * laneFadeAlpha);
         Raylib.DrawRectangle(laneX, hitZoneY, laneWidth * KeyBindings.LaneCount, 4, hitZoneColor);
 
-        // Per-lane indicators with bound key
+        // Per-lane indicators with bound key + hit burst
         for (int i = 0; i < KeyBindings.LaneCount; i++)
         {
             int x = laneX + i * laneWidth;
+
+            // Base indicator
             Color color = LaneColors[i];
             color.A = (byte)(255 * laneFadeAlpha);
             Raylib.DrawRectangle(x + 8, hitZoneY + 8, laneWidth - 16, 36, color);
 
+            // Hit burst: bright yellow-white overlay + expanding ring
+            if (laneHitTimes != null)
+            {
+                float hitFlash = AnimationHelper.GetFlashAlpha(laneHitTimes[i], LaneHitFlashDuration);
+                if (hitFlash > 0f)
+                {
+                    // Bright overlay on the indicator box
+                    Color hitOverlay = new((byte)255, (byte)255, (byte)180, (byte)(hitFlash * 230 * laneFadeAlpha));
+                    Raylib.DrawRectangle(x + 8, hitZoneY + 8, laneWidth - 16, 36, hitOverlay);
+
+                    // Expanding ring from the indicator center
+                    float ringProgress = 1f - hitFlash;
+                    float radius = ringProgress * 48f;
+                    if (radius > 2f)
+                    {
+                        int cx = x + laneWidth / 2;
+                        int cy = hitZoneY + 8 + 18;
+                        byte ringAlpha = (byte)(hitFlash * 220 * laneFadeAlpha);
+                        Color ringColor = new(UIRenderer.Primary.R, UIRenderer.Primary.G, UIRenderer.Primary.B, ringAlpha);
+                        Raylib.DrawCircleLines(cx, cy, radius,      ringColor);
+                        Raylib.DrawCircleLines(cx, cy, radius - 3f, ringColor);
+                    }
+                }
+            }
+
+            // Key label (drawn on top of everything)
             int textY = hitZoneY + 12;
             string keyLabel = bindings.GetKey(i).ToString();
             int textWidth = Raylib.MeasureText(keyLabel, 28);
             int textX = x + (laneWidth - textWidth) / 2;
-            Color textColor = new(20, 20, 30, (byte)(255 * laneFadeAlpha));
+            Color textColor = new((byte)20, (byte)20, (byte)30, (byte)(255 * laneFadeAlpha));
             Raylib.DrawText(keyLabel, textX, textY, 28, textColor);
         }
     }

@@ -27,6 +27,10 @@ public sealed class PlayScreen : Screen
     private double _phaseElapsedSec;
     private double _activeElapsedSec;
 
+    // Per-lane animation timestamps (-1 = never pressed this session)
+    private readonly double[] _laneAnyPressTimes = new double[KeyBindings.LaneCount];
+    private readonly double[] _laneHitTimes      = new double[KeyBindings.LaneCount];
+
     public PlayScreen(KeyBindings bindings, AudioManager audio, Func<Song?> activeSongAccessor)
     {
         _bindings = bindings;
@@ -49,6 +53,9 @@ public sealed class PlayScreen : Screen
         _phase = Phase.Countdown;
         _phaseElapsedSec = 0;
         _activeElapsedSec = 0;
+
+        Array.Fill(_laneAnyPressTimes, -1.0);
+        Array.Fill(_laneHitTimes,      -1.0);
 
         if (_audio.DeviceAvailable)
         {
@@ -122,31 +129,43 @@ public sealed class PlayScreen : Screen
             int? lane = _bindings.FindLaneByKey(letter);
             if (lane is null) continue;
 
+            double now = Raylib.GetTime();
+            _laneAnyPressTimes[lane.Value] = now; // always flash on any bound key press
+
             HitResult result = _detector.EvaluatePress(_timer.CurrentTimeMs, lane.Value);
             switch (result)
             {
-                case HitResult.Hit: _session.RegisterHit(); break;
-                case HitResult.Miss: _session.RegisterMiss(); break;
-                case HitResult.Ignored: break;
+                case HitResult.Hit:
+                    _session.RegisterHit();
+                    _laneHitTimes[lane.Value] = now; // extra burst on correct timing
+                    break;
+                case HitResult.Miss:
+                    _session.RegisterMiss();
+                    break;
+                case HitResult.Ignored:
+                    break;
             }
         }
     }
 
     public override void Draw()
     {
-        int screenWidth = Raylib.GetScreenWidth();
+        int screenWidth  = Raylib.GetScreenWidth();
         int screenHeight = Raylib.GetScreenHeight();
 
         // Lanes (faded in during the first half-second of Active)
         float laneAlpha = _phase switch
         {
-            Phase.Active => AnimationHelper.LinearFadeIn(_activeElapsedSec, LaneFadeSeconds),
+            Phase.Active   => AnimationHelper.LinearFadeIn(_activeElapsedSec, LaneFadeSeconds),
             Phase.EndScore => 0.4f,
             _ => 0f,
         };
         if (laneAlpha > 0)
         {
-            BeatRenderer.DrawLanes(screenWidth, screenHeight, _bindings, laneAlpha);
+            bool isActive = _phase == Phase.Active;
+            BeatRenderer.DrawLanes(screenWidth, screenHeight, _bindings, laneAlpha,
+                laneAnyPressTimes: isActive ? _laneAnyPressTimes : null,
+                laneHitTimes:      isActive ? _laneHitTimes      : null);
         }
 
         if (_phase == Phase.Active && _detector is not null && _timer is not null && _song is not null)

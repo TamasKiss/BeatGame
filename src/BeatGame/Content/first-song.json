@@ -3,40 +3,1145 @@
   "audioFile": "first-song.mp3",
   "bpm": 120,
   "beats": [
-    { "timestampMs": 4000, "lane": 0 },
-    { "timestampMs": 4500, "lane": 1 },
-    { "timestampMs": 5000, "lane": 2 },
-    { "timestampMs": 5500, "lane": 3 },
-    { "timestampMs": 6000, "lane": 4 },
-    { "timestampMs": 6500, "lane": 3 },
-    { "timestampMs": 7000, "lane": 2 },
-    { "timestampMs": 7500, "lane": 1 },
-    { "timestampMs": 8000, "lane": 0 },
-    { "timestampMs": 8500, "lane": 2 },
-    { "timestampMs": 9000, "lane": 4 },
-    { "timestampMs": 9500, "lane": 2 },
-    { "timestampMs": 10000, "lane": 0 },
-    { "timestampMs": 10250, "lane": 1 },
-    { "timestampMs": 10500, "lane": 2 },
-    { "timestampMs": 10750, "lane": 3 },
-    { "timestampMs": 11000, "lane": 4 },
-    { "timestampMs": 11500, "lane": 0 },
-    { "timestampMs": 12000, "lane": 4 },
-    { "timestampMs": 12500, "lane": 1 },
-    { "timestampMs": 13000, "lane": 3 },
-    { "timestampMs": 13500, "lane": 2 },
-    { "timestampMs": 14000, "lane": 0 },
-    { "timestampMs": 14500, "lane": 4 },
-    { "timestampMs": 15000, "lane": 2 },
-    { "timestampMs": 15500, "lane": 1 },
-    { "timestampMs": 16000, "lane": 3 },
-    { "timestampMs": 16500, "lane": 0 },
-    { "timestampMs": 17000, "lane": 4 },
-    { "timestampMs": 17500, "lane": 2 },
-    { "timestampMs": 18000, "lane": 1 },
-    { "timestampMs": 18500, "lane": 3 },
-    { "timestampMs": 19000, "lane": 0 },
-    { "timestampMs": 19500, "lane": 4 },
-    { "timestampMs": 20000, "lane": 2 }
+    {
+      "timestampMs": 768,
+      "lane": 0
+    },
+    {
+      "timestampMs": 1259,
+      "lane": 3
+    },
+    {
+      "timestampMs": 1760,
+      "lane": 2
+    },
+    {
+      "timestampMs": 2251,
+      "lane": 3
+    },
+    {
+      "timestampMs": 2752,
+      "lane": 1
+    },
+    {
+      "timestampMs": 3243,
+      "lane": 3
+    },
+    {
+      "timestampMs": 3744,
+      "lane": 1
+    },
+    {
+      "timestampMs": 4235,
+      "lane": 3
+    },
+    {
+      "timestampMs": 4736,
+      "lane": 2
+    },
+    {
+      "timestampMs": 5227,
+      "lane": 3
+    },
+    {
+      "timestampMs": 5728,
+      "lane": 1
+    },
+    {
+      "timestampMs": 6219,
+      "lane": 3
+    },
+    {
+      "timestampMs": 6720,
+      "lane": 2
+    },
+    {
+      "timestampMs": 7211,
+      "lane": 3
+    },
+    {
+      "timestampMs": 7712,
+      "lane": 1
+    },
+    {
+      "timestampMs": 9195,
+      "lane": 4
+    },
+    {
+      "timestampMs": 9696,
+      "lane": 0
+    },
+    {
+      "timestampMs": 10187,
+      "lane": 3
+    },
+    {
+      "timestampMs": 10677,
+      "lane": 1
+    },
+    {
+      "timestampMs": 11179,
+      "lane": 3
+    },
+    {
+      "timestampMs": 11680,
+      "lane": 1
+    },
+    {
+      "timestampMs": 12171,
+      "lane": 3
+    },
+    {
+      "timestampMs": 12672,
+      "lane": 1
+    },
+    {
+      "timestampMs": 13163,
+      "lane": 3
+    },
+    {
+      "timestampMs": 13664,
+      "lane": 1
+    },
+    {
+      "timestampMs": 14155,
+      "lane": 3
+    },
+    {
+      "timestampMs": 14656,
+      "lane": 1
+    },
+    {
+      "timestampMs": 15147,
+      "lane": 3
+    },
+    {
+      "timestampMs": 15648,
+      "lane": 2
+    },
+    {
+      "timestampMs": 16139,
+      "lane": 1
+    },
+    {
+      "timestampMs": 17131,
+      "lane": 2
+    },
+    {
+      "timestampMs": 17632,
+      "lane": 1
+    },
+    {
+      "timestampMs": 18123,
+      "lane": 3
+    },
+    {
+      "timestampMs": 18624,
+      "lane": 1
+    },
+    {
+      "timestampMs": 19115,
+      "lane": 3
+    },
+    {
+      "timestampMs": 19616,
+      "lane": 1
+    },
+    {
+      "timestampMs": 20107,
+      "lane": 3
+    },
+    {
+      "timestampMs": 20608,
+      "lane": 2
+    },
+    {
+      "timestampMs": 21099,
+      "lane": 3
+    },
+    {
+      "timestampMs": 21600,
+      "lane": 1
+    },
+    {
+      "timestampMs": 22091,
+      "lane": 3
+    },
+    {
+      "timestampMs": 22592,
+      "lane": 1
+    },
+    {
+      "timestampMs": 23083,
+      "lane": 4
+    },
+    {
+      "timestampMs": 23584,
+      "lane": 1
+    },
+    {
+      "timestampMs": 24075,
+      "lane": 4
+    },
+    {
+      "timestampMs": 24576,
+      "lane": 1
+    },
+    {
+      "timestampMs": 25067,
+      "lane": 3
+    },
+    {
+      "timestampMs": 25568,
+      "lane": 1
+    },
+    {
+      "timestampMs": 26059,
+      "lane": 4
+    },
+    {
+      "timestampMs": 26560,
+      "lane": 0
+    },
+    {
+      "timestampMs": 27051,
+      "lane": 2
+    },
+    {
+      "timestampMs": 27541,
+      "lane": 0
+    },
+    {
+      "timestampMs": 28043,
+      "lane": 3
+    },
+    {
+      "timestampMs": 28544,
+      "lane": 2
+    },
+    {
+      "timestampMs": 29035,
+      "lane": 3
+    },
+    {
+      "timestampMs": 29536,
+      "lane": 1
+    },
+    {
+      "timestampMs": 30027,
+      "lane": 3
+    },
+    {
+      "timestampMs": 30528,
+      "lane": 4
+    },
+    {
+      "timestampMs": 31019,
+      "lane": 3
+    },
+    {
+      "timestampMs": 31520,
+      "lane": 2
+    },
+    {
+      "timestampMs": 33003,
+      "lane": 3
+    },
+    {
+      "timestampMs": 33504,
+      "lane": 1
+    },
+    {
+      "timestampMs": 33995,
+      "lane": 3
+    },
+    {
+      "timestampMs": 34496,
+      "lane": 1
+    },
+    {
+      "timestampMs": 34987,
+      "lane": 3
+    },
+    {
+      "timestampMs": 35488,
+      "lane": 2
+    },
+    {
+      "timestampMs": 35979,
+      "lane": 3
+    },
+    {
+      "timestampMs": 36480,
+      "lane": 1
+    },
+    {
+      "timestampMs": 36971,
+      "lane": 4
+    },
+    {
+      "timestampMs": 37472,
+      "lane": 1
+    },
+    {
+      "timestampMs": 37963,
+      "lane": 3
+    },
+    {
+      "timestampMs": 38464,
+      "lane": 2
+    },
+    {
+      "timestampMs": 38955,
+      "lane": 3
+    },
+    {
+      "timestampMs": 39456,
+      "lane": 2
+    },
+    {
+      "timestampMs": 39957,
+      "lane": 1
+    },
+    {
+      "timestampMs": 41440,
+      "lane": 2
+    },
+    {
+      "timestampMs": 41941,
+      "lane": 4
+    },
+    {
+      "timestampMs": 42432,
+      "lane": 1
+    },
+    {
+      "timestampMs": 42933,
+      "lane": 4
+    },
+    {
+      "timestampMs": 43424,
+      "lane": 1
+    },
+    {
+      "timestampMs": 43925,
+      "lane": 4
+    },
+    {
+      "timestampMs": 44907,
+      "lane": 3
+    },
+    {
+      "timestampMs": 45408,
+      "lane": 2
+    },
+    {
+      "timestampMs": 45909,
+      "lane": 4
+    },
+    {
+      "timestampMs": 46400,
+      "lane": 1
+    },
+    {
+      "timestampMs": 46901,
+      "lane": 4
+    },
+    {
+      "timestampMs": 47403,
+      "lane": 3
+    },
+    {
+      "timestampMs": 48885,
+      "lane": 4
+    },
+    {
+      "timestampMs": 49877,
+      "lane": 3
+    },
+    {
+      "timestampMs": 50869,
+      "lane": 4
+    },
+    {
+      "timestampMs": 51360,
+      "lane": 1
+    },
+    {
+      "timestampMs": 51861,
+      "lane": 3
+    },
+    {
+      "timestampMs": 52352,
+      "lane": 1
+    },
+    {
+      "timestampMs": 52853,
+      "lane": 3
+    },
+    {
+      "timestampMs": 53344,
+      "lane": 2
+    },
+    {
+      "timestampMs": 53845,
+      "lane": 4
+    },
+    {
+      "timestampMs": 54336,
+      "lane": 1
+    },
+    {
+      "timestampMs": 54837,
+      "lane": 0
+    },
+    {
+      "timestampMs": 56821,
+      "lane": 4
+    },
+    {
+      "timestampMs": 57323,
+      "lane": 2
+    },
+    {
+      "timestampMs": 57813,
+      "lane": 3
+    },
+    {
+      "timestampMs": 58805,
+      "lane": 4
+    },
+    {
+      "timestampMs": 59797,
+      "lane": 4
+    },
+    {
+      "timestampMs": 60299,
+      "lane": 2
+    },
+    {
+      "timestampMs": 60789,
+      "lane": 4
+    },
+    {
+      "timestampMs": 61781,
+      "lane": 3
+    },
+    {
+      "timestampMs": 62283,
+      "lane": 2
+    },
+    {
+      "timestampMs": 62773,
+      "lane": 4
+    },
+    {
+      "timestampMs": 63275,
+      "lane": 3
+    },
+    {
+      "timestampMs": 64757,
+      "lane": 4
+    },
+    {
+      "timestampMs": 65259,
+      "lane": 3
+    },
+    {
+      "timestampMs": 65749,
+      "lane": 4
+    },
+    {
+      "timestampMs": 66251,
+      "lane": 2
+    },
+    {
+      "timestampMs": 66741,
+      "lane": 4
+    },
+    {
+      "timestampMs": 67243,
+      "lane": 2
+    },
+    {
+      "timestampMs": 67733,
+      "lane": 4
+    },
+    {
+      "timestampMs": 68235,
+      "lane": 1
+    },
+    {
+      "timestampMs": 68725,
+      "lane": 4
+    },
+    {
+      "timestampMs": 69227,
+      "lane": 3
+    },
+    {
+      "timestampMs": 69717,
+      "lane": 4
+    },
+    {
+      "timestampMs": 70219,
+      "lane": 2
+    },
+    {
+      "timestampMs": 70709,
+      "lane": 4
+    },
+    {
+      "timestampMs": 71211,
+      "lane": 2
+    },
+    {
+      "timestampMs": 71701,
+      "lane": 1
+    },
+    {
+      "timestampMs": 72693,
+      "lane": 4
+    },
+    {
+      "timestampMs": 73195,
+      "lane": 3
+    },
+    {
+      "timestampMs": 73685,
+      "lane": 4
+    },
+    {
+      "timestampMs": 74187,
+      "lane": 1
+    },
+    {
+      "timestampMs": 74677,
+      "lane": 4
+    },
+    {
+      "timestampMs": 75168,
+      "lane": 1
+    },
+    {
+      "timestampMs": 75669,
+      "lane": 4
+    },
+    {
+      "timestampMs": 76171,
+      "lane": 1
+    },
+    {
+      "timestampMs": 76661,
+      "lane": 4
+    },
+    {
+      "timestampMs": 77163,
+      "lane": 2
+    },
+    {
+      "timestampMs": 77653,
+      "lane": 4
+    },
+    {
+      "timestampMs": 78155,
+      "lane": 2
+    },
+    {
+      "timestampMs": 78645,
+      "lane": 4
+    },
+    {
+      "timestampMs": 79147,
+      "lane": 2
+    },
+    {
+      "timestampMs": 79637,
+      "lane": 4
+    },
+    {
+      "timestampMs": 80629,
+      "lane": 3
+    },
+    {
+      "timestampMs": 81131,
+      "lane": 2
+    },
+    {
+      "timestampMs": 81621,
+      "lane": 3
+    },
+    {
+      "timestampMs": 82123,
+      "lane": 2
+    },
+    {
+      "timestampMs": 82613,
+      "lane": 4
+    },
+    {
+      "timestampMs": 83115,
+      "lane": 2
+    },
+    {
+      "timestampMs": 83605,
+      "lane": 3
+    },
+    {
+      "timestampMs": 84107,
+      "lane": 0
+    },
+    {
+      "timestampMs": 84597,
+      "lane": 4
+    },
+    {
+      "timestampMs": 85099,
+      "lane": 3
+    },
+    {
+      "timestampMs": 85589,
+      "lane": 2
+    },
+    {
+      "timestampMs": 86091,
+      "lane": 3
+    },
+    {
+      "timestampMs": 86592,
+      "lane": 4
+    },
+    {
+      "timestampMs": 87083,
+      "lane": 3
+    },
+    {
+      "timestampMs": 89067,
+      "lane": 2
+    },
+    {
+      "timestampMs": 89568,
+      "lane": 4
+    },
+    {
+      "timestampMs": 90059,
+      "lane": 3
+    },
+    {
+      "timestampMs": 90549,
+      "lane": 4
+    },
+    {
+      "timestampMs": 91051,
+      "lane": 2
+    },
+    {
+      "timestampMs": 91541,
+      "lane": 3
+    },
+    {
+      "timestampMs": 92043,
+      "lane": 4
+    },
+    {
+      "timestampMs": 92533,
+      "lane": 3
+    },
+    {
+      "timestampMs": 93035,
+      "lane": 2
+    },
+    {
+      "timestampMs": 93525,
+      "lane": 4
+    },
+    {
+      "timestampMs": 94027,
+      "lane": 2
+    },
+    {
+      "timestampMs": 95019,
+      "lane": 3
+    },
+    {
+      "timestampMs": 95520,
+      "lane": 4
+    },
+    {
+      "timestampMs": 96512,
+      "lane": 3
+    },
+    {
+      "timestampMs": 97013,
+      "lane": 4
+    },
+    {
+      "timestampMs": 97504,
+      "lane": 4
+    },
+    {
+      "timestampMs": 98005,
+      "lane": 2
+    },
+    {
+      "timestampMs": 98496,
+      "lane": 3
+    },
+    {
+      "timestampMs": 98997,
+      "lane": 4
+    },
+    {
+      "timestampMs": 99488,
+      "lane": 4
+    },
+    {
+      "timestampMs": 99989,
+      "lane": 3
+    },
+    {
+      "timestampMs": 100480,
+      "lane": 4
+    },
+    {
+      "timestampMs": 100981,
+      "lane": 4
+    },
+    {
+      "timestampMs": 101472,
+      "lane": 3
+    },
+    {
+      "timestampMs": 101973,
+      "lane": 4
+    },
+    {
+      "timestampMs": 102464,
+      "lane": 3
+    },
+    {
+      "timestampMs": 102955,
+      "lane": 4
+    },
+    {
+      "timestampMs": 104448,
+      "lane": 3
+    },
+    {
+      "timestampMs": 104949,
+      "lane": 4
+    },
+    {
+      "timestampMs": 105440,
+      "lane": 3
+    },
+    {
+      "timestampMs": 106432,
+      "lane": 2
+    },
+    {
+      "timestampMs": 106933,
+      "lane": 3
+    },
+    {
+      "timestampMs": 107424,
+      "lane": 4
+    },
+    {
+      "timestampMs": 107925,
+      "lane": 3
+    },
+    {
+      "timestampMs": 108416,
+      "lane": 4
+    },
+    {
+      "timestampMs": 108917,
+      "lane": 3
+    },
+    {
+      "timestampMs": 109408,
+      "lane": 4
+    },
+    {
+      "timestampMs": 109909,
+      "lane": 3
+    },
+    {
+      "timestampMs": 110400,
+      "lane": 2
+    },
+    {
+      "timestampMs": 112384,
+      "lane": 3
+    },
+    {
+      "timestampMs": 112885,
+      "lane": 4
+    },
+    {
+      "timestampMs": 113376,
+      "lane": 4
+    },
+    {
+      "timestampMs": 113877,
+      "lane": 2
+    },
+    {
+      "timestampMs": 114368,
+      "lane": 4
+    },
+    {
+      "timestampMs": 114869,
+      "lane": 3
+    },
+    {
+      "timestampMs": 115360,
+      "lane": 4
+    },
+    {
+      "timestampMs": 115861,
+      "lane": 3
+    },
+    {
+      "timestampMs": 116352,
+      "lane": 2
+    },
+    {
+      "timestampMs": 116853,
+      "lane": 3
+    },
+    {
+      "timestampMs": 117344,
+      "lane": 4
+    },
+    {
+      "timestampMs": 117845,
+      "lane": 3
+    },
+    {
+      "timestampMs": 118336,
+      "lane": 4
+    },
+    {
+      "timestampMs": 118837,
+      "lane": 2
+    },
+    {
+      "timestampMs": 121312,
+      "lane": 3
+    },
+    {
+      "timestampMs": 121813,
+      "lane": 4
+    },
+    {
+      "timestampMs": 122304,
+      "lane": 3
+    },
+    {
+      "timestampMs": 122805,
+      "lane": 2
+    },
+    {
+      "timestampMs": 123296,
+      "lane": 4
+    },
+    {
+      "timestampMs": 123797,
+      "lane": 2
+    },
+    {
+      "timestampMs": 124288,
+      "lane": 4
+    },
+    {
+      "timestampMs": 124789,
+      "lane": 3
+    },
+    {
+      "timestampMs": 125280,
+      "lane": 4
+    },
+    {
+      "timestampMs": 126773,
+      "lane": 0
+    },
+    {
+      "timestampMs": 127275,
+      "lane": 1
+    },
+    {
+      "timestampMs": 131733,
+      "lane": 0
+    },
+    {
+      "timestampMs": 133237,
+      "lane": 0
+    },
+    {
+      "timestampMs": 134229,
+      "lane": 0
+    },
+    {
+      "timestampMs": 134720,
+      "lane": 0
+    },
+    {
+      "timestampMs": 135221,
+      "lane": 0
+    },
+    {
+      "timestampMs": 135701,
+      "lane": 1
+    },
+    {
+      "timestampMs": 136192,
+      "lane": 0
+    },
+    {
+      "timestampMs": 136693,
+      "lane": 1
+    },
+    {
+      "timestampMs": 137195,
+      "lane": 2
+    },
+    {
+      "timestampMs": 137685,
+      "lane": 1
+    },
+    {
+      "timestampMs": 138176,
+      "lane": 0
+    },
+    {
+      "timestampMs": 139669,
+      "lane": 1
+    },
+    {
+      "timestampMs": 140160,
+      "lane": 2
+    },
+    {
+      "timestampMs": 140661,
+      "lane": 1
+    },
+    {
+      "timestampMs": 141152,
+      "lane": 3
+    },
+    {
+      "timestampMs": 141653,
+      "lane": 2
+    },
+    {
+      "timestampMs": 142144,
+      "lane": 4
+    },
+    {
+      "timestampMs": 142645,
+      "lane": 1
+    },
+    {
+      "timestampMs": 143147,
+      "lane": 0
+    },
+    {
+      "timestampMs": 143637,
+      "lane": 3
+    },
+    {
+      "timestampMs": 144139,
+      "lane": 4
+    },
+    {
+      "timestampMs": 145131,
+      "lane": 4
+    },
+    {
+      "timestampMs": 146123,
+      "lane": 3
+    },
+    {
+      "timestampMs": 147115,
+      "lane": 4
+    },
+    {
+      "timestampMs": 148107,
+      "lane": 3
+    },
+    {
+      "timestampMs": 148597,
+      "lane": 2
+    },
+    {
+      "timestampMs": 149099,
+      "lane": 3
+    },
+    {
+      "timestampMs": 149600,
+      "lane": 4
+    },
+    {
+      "timestampMs": 150091,
+      "lane": 3
+    },
+    {
+      "timestampMs": 151083,
+      "lane": 2
+    },
+    {
+      "timestampMs": 152075,
+      "lane": 1
+    },
+    {
+      "timestampMs": 152576,
+      "lane": 2
+    },
+    {
+      "timestampMs": 153067,
+      "lane": 3
+    },
+    {
+      "timestampMs": 153568,
+      "lane": 2
+    },
+    {
+      "timestampMs": 154059,
+      "lane": 3
+    },
+    {
+      "timestampMs": 154549,
+      "lane": 2
+    },
+    {
+      "timestampMs": 155051,
+      "lane": 3
+    },
+    {
+      "timestampMs": 155552,
+      "lane": 4
+    },
+    {
+      "timestampMs": 156043,
+      "lane": 3
+    },
+    {
+      "timestampMs": 156533,
+      "lane": 2
+    },
+    {
+      "timestampMs": 157035,
+      "lane": 4
+    },
+    {
+      "timestampMs": 157525,
+      "lane": 2
+    },
+    {
+      "timestampMs": 158027,
+      "lane": 1
+    },
+    {
+      "timestampMs": 160011,
+      "lane": 2
+    },
+    {
+      "timestampMs": 160512,
+      "lane": 1
+    },
+    {
+      "timestampMs": 161003,
+      "lane": 3
+    },
+    {
+      "timestampMs": 161504,
+      "lane": 2
+    },
+    {
+      "timestampMs": 161995,
+      "lane": 3
+    },
+    {
+      "timestampMs": 162485,
+      "lane": 2
+    },
+    {
+      "timestampMs": 162987,
+      "lane": 1
+    },
+    {
+      "timestampMs": 163488,
+      "lane": 3
+    },
+    {
+      "timestampMs": 163979,
+      "lane": 2
+    },
+    {
+      "timestampMs": 164480,
+      "lane": 3
+    },
+    {
+      "timestampMs": 164971,
+      "lane": 2
+    },
+    {
+      "timestampMs": 165472,
+      "lane": 3
+    },
+    {
+      "timestampMs": 165963,
+      "lane": 4
+    },
+    {
+      "timestampMs": 166464,
+      "lane": 2
+    },
+    {
+      "timestampMs": 168448,
+      "lane": 1
+    },
+    {
+      "timestampMs": 168939,
+      "lane": 2
+    },
+    {
+      "timestampMs": 169440,
+      "lane": 3
+    },
+    {
+      "timestampMs": 169931,
+      "lane": 2
+    },
+    {
+      "timestampMs": 170432,
+      "lane": 3
+    },
+    {
+      "timestampMs": 170923,
+      "lane": 2
+    },
+    {
+      "timestampMs": 171915,
+      "lane": 3
+    },
+    {
+      "timestampMs": 172416,
+      "lane": 2
+    },
+    {
+      "timestampMs": 172907,
+      "lane": 1
+    },
+    {
+      "timestampMs": 173408,
+      "lane": 2
+    },
+    {
+      "timestampMs": 174400,
+      "lane": 0
+    }
   ]
 }

@@ -13,7 +13,7 @@ public static class UIRenderer
     public static readonly Color TextDim = new(160, 160, 175, 255);
     public static readonly Color PanelBg = new(28, 28, 42, 255);
 
-    public static bool DrawButton(Rectangle rect, string text, int fontSize = 28)
+    public static bool DrawButton(Rectangle rect, string text, int fontSize = 28, float flashAlpha = 0f)
     {
         Vector2 mouse = Raylib.GetMousePosition();
         bool hovered = Raylib.CheckCollisionPointRec(mouse, rect);
@@ -21,6 +21,14 @@ public static class UIRenderer
 
         Color bg = hovered ? PrimaryHover : Primary;
         Raylib.DrawRectangleRec(rect, bg);
+
+        // White flash overlay on press
+        if (flashAlpha > 0f)
+        {
+            Color flash = new((byte)255, (byte)255, (byte)255, (byte)(flashAlpha * 200));
+            Raylib.DrawRectangleRec(rect, flash);
+        }
+
         Raylib.DrawRectangleLinesEx(rect, 2, TextLight);
 
         int textWidth = Raylib.MeasureText(text, fontSize);

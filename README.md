@@ -27,7 +27,7 @@ dotnet run --project src/BeatGame
 dotnet publish src/BeatGame -c Release -r win-x64 -o ./publish
 ```
 
-The output folder contains `BeatGame.exe` and `raylib.dll`. Copy the entire folder to distribute.
+The output folder contains `BeatGame.exe` (self-contained — no .NET runtime required) and a `Content/` folder. Copy the entire folder to distribute.
 
 ## Test
 
@@ -62,12 +62,12 @@ Stray key presses outside any active beat window are silently ignored.
 
 ## Content
 
-The game ships with a single song titled "First song" located at:
+The game ships with a single song titled "First song":
 
-- `src/BeatGame/Content/first-song.mp3` — **the audio file is not bundled in this repo**. Drop a short pop-rock MP3 (60–120 seconds) into this path and ensure it matches the beat timings.
+- `src/BeatGame/Content/first-song.mp3` — the audio track.
 - `src/BeatGame/Content/first-song.json` — the beat map (timestamps in milliseconds, lanes 0–4).
 
-The beat map shipped in this repo runs from 4s to 20s; the game will play silently and still demonstrate the full gameplay loop if the audio file is missing.
+The game runs without an audio device — beats still scroll and scoring still works, but no sound plays.
 
 ## Project structure
 

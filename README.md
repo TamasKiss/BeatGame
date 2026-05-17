@@ -6,6 +6,10 @@ A Windows-native rhythm game built with C# .NET 8 and [Raylib-cs](https://github
 
 You can download the finished game here: https://github.com/TamasKiss/BeatGame/releases/tag/v1.0.0 
 
+## How it was made
+
+This is a PoC I've made to try out GitHub's Spec-kit and Spec-Driven development in general. It is surprisingly good for a small project that (with my rusty programming skills) would've taken me a few weekends to write.
+
 ## Requirements
 
 - **Windows 10/11 x86-64**

@@ -3,6 +3,7 @@ using BeatGame.Core;
 using BeatGame.Input;
 using BeatGame.Models;
 using BeatGame.Rendering;
+using BeatGame.Storage;
 using Raylib_cs;
 
 namespace BeatGame.Screens;
@@ -83,6 +84,11 @@ public sealed class PlayScreen : Screen
                 break;
 
             case Phase.Active:
+                if (Raylib.IsKeyPressed(KeyboardKey.Escape))
+                {
+                    Manager.Transition(GameState.Menu);
+                    return;
+                }
                 _activeElapsedSec += deltaTime;
                 if (_audio.DeviceAvailable) _audio.Update();
                 _timer?.Advance(deltaTime * 1000.0);
@@ -90,6 +96,7 @@ public sealed class PlayScreen : Screen
                 if (_detector?.AllBeatsProcessed == true
                     && (!_audio.DeviceAvailable || !_audio.IsPlaying))
                 {
+                    ScoreStore.SaveIfHighScore((int)_session.Score);
                     _phase = Phase.EndScore;
                     _phaseElapsedSec = 0;
                 }

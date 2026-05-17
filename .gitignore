@@ -1,6 +1,12 @@
 # Claude Code
 .claude/
 
+# Spec Kit
+.specify/
+
+# Internal specs / planning
+specs/
+
 # Dependencies
 node_modules/
 package-lock.json
